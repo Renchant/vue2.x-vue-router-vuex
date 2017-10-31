@@ -1,0 +1,33 @@
+@import './../base';
+@mixin bg_dialog($color: $aid-color__level-1) {
+    z-index: $zIndex-bottom;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.6);
+    color: $color;
+}
+._cursor{
+    cursor: pointer;
+}
+.overflow-text{
+    white-space:nowrap; 
+    overflow:hidden; 
+    text-overflow:ellipsis;
+    display: inline-block;
+}
+.line_through{
+    text-decoration: line-through;
+}
+@mixin turn_off ( $deg: 45deg, $wh: 90%, $color: white) {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: $wh;
+    margin-top: -$wh / 2 ;
+    margin-left: -1px ;
+    background-color: $color;
+    transform: rotate( $deg );
+}

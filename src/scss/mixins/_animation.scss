@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+/**
+ * @desc translate 渐变库
+ * @author Ivan
+ * @lastModify Ivan
+ * @data 2017-03-07
+ */
+
+.slide-fade-enter-active {
+    transition: all .3s ease;
+}
+.slide-fade-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-active {
+    transform: translateX(10px);
+    opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0;
+}
+
+
+.translate-mode-wrapper {
+    position: relative;
+}
+
+.translate-mode-wrapper__item {
+    position: absolute;
+    width: 100%;
+}
+
+.translate-mode-enter-active,
+.translate-mode-leave-active {
+    transition: all 1s;
+}
+
+.translate-mode-enter,
+.translate-mode-leave-active {
+    opacity: 0;
+}
+
+.translate-mode-enter {
+    transform: translate(100%);
+}
+.translate-mode-leave-active {
+    transform: translate(-100%);
+}

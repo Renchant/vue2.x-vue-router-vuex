@@ -1,0 +1,33 @@
+@charset "utf-8";
+/**
+ * @desc css图标库
+ * @author Ivan
+ * @lastModify Ivan
+ * @data 2016-12-22
+ */
+
+@mixin checkIcon($size: 14px, $bgc: $tool-color__level-5, $brs: $b-radius, $color: $aid-color__level-1) {
+    display: inline-block;
+    position: relative;
+    width: $size;
+    height: $size;
+    border-radius: $brs;
+    background-color: $bgc;
+
+    &::before {
+        $top: $size * (1 / 7);
+
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: $size * (1 / 7) solid $color;
+        width: $size * (4 / 7);
+        height: $size * (2 / 7);
+        margin-top:  - $size * (1 / 14);
+        border-top: 0;
+        border-right: 0;
+        transform-origin: center;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}

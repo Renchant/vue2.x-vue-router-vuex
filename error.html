@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正在维护更新...</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+
+        #tip {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -125px);
+            font-size: 20px;
+            color: #666;
+        }
+        #battery {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 120px;
+            border: 5px solid #666;
+            border-radius: 10px;
+        }
+        #battery::before {
+            content: '';
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            width: 30px;
+            height: 4px;
+            margin-left: -15px;
+            border-radius: 2px 2px 0 0 ;
+            background-color: #666;
+        }
+
+        #face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            line-height: 1;
+            font-size: 0;
+        }
+        .eyes {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #666;
+            border-radius: 50%;
+        }
+        .eyes.left { margin-right: 25px; }
+
+        #mouth {
+            width: 100%;
+            margin: 15px auto 0;
+            stroke-width: 3px;
+        }
+
+        #energyWrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: antiquewhite;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        /*#energyWrap::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            margin: -50px 0 0 -32.5px;
+            border-style: solid;
+            border-color: transparent transparent rgba(255,255,255, .6) rgba(255,255,255, .6);
+            border-width: 50px 32.5px 50px 32.5px;
+        }        */
+        #energyBox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /*border-radius: 0 0 5px 5px;*/
+            transition: background-color .3s;
+        }
+        .wave {
+            position: absolute;
+            top: 0;
+            width: 43px;
+            height: 30px;
+            /*background-color: #ff9900;*/
+            /*background-color: #71FB85;*/
+            border-radius: 45%;
+            transform: translateY(-15%);
+            transition: background-color .3s;
+        }
+        .wave.left {
+            left: -4px;
+            animation: wave 1s ease-in-out infinite;
+        }
+        .wave.right {
+            right: -4px;
+            animation: wave 1s .2s ease-in-out infinite;
+        }
+        
+        .height, .height .wave { background-color: #71FB85; }
+        .middle, .middle .wave { background-color: #ff9900; }
+        .low, .low .wave { background-color: #f74545; }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(-7%) scale(1, 1);
+            }
+            65% {
+                transform: translateY(-45%)  scale(.85, 1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="tip" >😊 系统正在维护更新，请稍后重新访问～ </div>
+    <div id="battery">
+        <div id="energyWrap">
+            <div id="energyBox">
+                <div class="wave left"></div>
+                <div class="wave right"></div>
+            </div>
+        </div>
+        <div id="face">
+            <span class="eyes left"></span>
+            <span class="eyes right"></span>
+            <svg id="mouth" width="70" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg" >
+                <!--<path id="mouthPath" d="M18 8 C18 8, 52 8, 52 8" stroke="#666" fill="none" />-->
+                <path id="mouthPath" stroke="#666" fill="none" />
+            </svg>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/tween.js/r14/Tween.min.js"></script>
+    <script>
+        var mouth = document.getElementById('mouthPath')
+        var energyBox = document.getElementById('energyBox')
+        
+        var points = [ { x: 18, y: 8 }, { x: 18, y: 16 }, { x: 52, y: 16 }, { x: 52, y: 8 } ]
+        
+        var animate = function (tween, callback) {
+            var stop = false;
+            var _animate = function (time) {
+                if (!stop) {
+                    tween.update(time)
+                    window.requestAnimationFrame(_animate)
+                }
+            }
+
+            tween.onComplete(function() {
+                    stop = true
+                    callback && callback()
+                })
+                .start()
+            _animate()
+        }
+
+        var changeEnergy = function() {
+            var energy = [ 0, 100 ]
+            var y = [ 0, 16 ]
+            
+            if (Number(energyBox.style.top.replace('%', '')) <= 0) {
+                energy.reverse()
+                y.reverse()
+            }
+
+            animate(
+                new TWEEN.Tween({ e: energy[0], y: y[0] })
+                    .easing(TWEEN.Easing.Circular.Out)
+                    .to({ e: energy[1], y: y[1] }, 2400)
+                    .onUpdate(function() {
+                        if (!isNaN(this.e)) {
+                            energyBox.style.top = (100 - this.e) + '%'
+                            energyBox.setAttribute('class', manageBatteryColor(this.e))
+
+                            mouth.setAttribute('d', `M18 8 C18 ${this.y}, 52 ${this.y}, 52 8`)
+                        }
+                    }),
+                function() {
+                    setTimeout(changeEnergy, 200)
+                }
+            )
+        }
+
+        var manageBatteryColor = function (energy) {
+            var status = 'low'
+            switch(true) {
+                case energy >= 60:
+                    status = 'height'
+                    break
+                case energy >= 30:
+                    status = 'middle'
+                    break
+            }
+            return status
+        }
+
+        // energyBox.style.top = Math.random() * 100 + '%'
+        energyBox.style.top = '0%'
+        changeEnergy();
+
+        var checkIsReady = function() {
+            var image = document.createElement('img');
+            var iconUrl = window.location.origin + '/dist/favicon.ico';
+            var loop = function() {
+                setTimeout(function() {
+                    image.src = iconUrl + '?t=' + Date.now();
+                }, 3000);
+            };
+
+            image.addEventListener('load', function(e) {
+                if (location.href === location.origin) {
+                    location.reload(true);
+                } else {
+                    location.href = location.origin;
+                }
+            });
+            image.addEventListener('error', function(e) {
+                console.log('憋急，再等一会😄')
+                loop();
+            });
+
+            loop();
+        }
+
+        checkIsReady();
+    </script>
+</body>
+</html>

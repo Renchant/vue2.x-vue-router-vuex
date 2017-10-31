@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+/**
+ * 常用原子类 
+ */
+
+.flex {
+    display: flex !important;
+}
+
+.flex-1 {
+    flex: 1 !important;
+}
+
+.flex-2 {
+    flex: 2 !important;
+}
+
+.flex-d-c {
+    flex-direction: column !important;
+}
+
+.flex-d-r {
+    flex-direction: row !important;
+}
+
+.flex-a-c {
+    align-items: center !important;
+}
+
+.flex-a-fs {
+    align-items: flex-start !important;
+}
+
+.flex-a-fe {
+    align-items: flex-end !important;
+}
+
+.flex-a-st {
+    align-items: stretch !important;
+}
+
+.flex-j-fs {
+    justify-content: flex-start !important;
+}
+
+.flex-j-fe {
+    justify-content: flex-end !important;
+}
+
+.flex-j-c {
+    justify-content: center !important;
+}
+
+.flex-j-sb {
+    justify-content: space-between !important;
+}
+
+.flex-j-sa {
+    justify-content: space-around !important;
+}
+
+.pot-r {
+    position: relative !important;
+}
+
+/**
+ * 字体 
+ */
+
+.text-a-l {
+    text-align: left;
+}
+.text-a-c {
+    text-align: center;
+}
+.text-a-r {
+    text-align: right;
+}
+
+
+
+/**
+ * 展示 
+ */
+.cursor-p {
+    cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,48 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+.DS_Store
+
+.idea/*
+
+*.sqlite3
+dump.rdb
+
+### sublime ###
+*.sublime-project
+*.sublime-workspace
+
+### vscode ###
+.vscode/
+
+### sass ###
+*.sass-cache
+.runsass
+
+### nodejs ###
+node_modules
+npm-debug.log
+npm-debug.log.*
+
+### custom file ###
+local_config.js
+build/configs/custom.local.js
+
+### third party ###
+thirdparty/*/dist/
+thirdparty/*/build/
+
+### dist ###
+/dist
+
+### test ###
+/coverage
+
+### sh ###
+build.sh
+nohup.out
+
+### eslintrc ###

@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+/**
+ * @desc 主题基础库
+ * @author Ivan
+ * @lastModify Ivan
+ * @data 2016-12-13
+ */
+/******************** 颜色 **********************/
+
+/*********
+ * 主体色 *
+ *********/
+$main-color__light: #01b6ea                                !default; // 浅色
+$main-color__deep: #36506C                                !default; // 深色
+
+/*********
+ * 辅助色 *
+ *********/
+// 辅助色按级别由浅入深
+$aid-color__level-1: #fff                                !default; // 白色
+$aid-color__level-2: #E3FDFD                            !default; // 浅蓝绿色
+$aid-color__level-3: #A4F6F9                            !default; // 蓝绿色
+$aid-color__level-4: #01b6ea                            !default; // 浅蓝紫色
+$aid-color__level-5: #71C9CE                            !default; // 浓绿色
+$aid-color__level-6: #36506C                            !default; // 深蓝黑色
+$aid-color__level-7: #ff9234                            !default; // 橘黄色
+$aid-color__level-8: #14d212                            !default; // 鲜绿色
+$aid-color__level-9: #a5def1                            !default;
+$aid-color__level-10: #ff0000                           !default; //深红色
+
+/******************************************
+ * 工具色(用于按钮／边框／标签等) *
+ ******************************************/
+$tool-color__level-1: $aid-color__level-4                !default; // 浅蓝紫色
+$tool-color__level-2: $main-color__light                !default; // 主色－浅
+$tool-color__level-3: $main-color__deep                    !default; // 主色－深
+$tool-color__level-4: #EDF2F6                            !default; // 浅灰色
+$tool-color__level-5: #ddd                                !default; // 灰色
+$tool-color__level-6: #999                                !default; // 深灰色
+$tool-color__level-7: #333                                !default; // 黑色
+$tool-color__level-8: $aid-color__level-6                !default; // 深蓝黑色
+$tool-color__level-9: $aid-color__level-7                !default; // 橘黄色
+$tool-color__level-10: $aid-color__level-8                !default; // 鲜绿色
+$tool-color__level-11: $aid-color__level-9                !default;
+
+
+/******************** 字体 **********************/
+
+/************
+ * 突出性文字 *
+ ************/
+$special-fc: #333                                        !default; // 字体颜色
+$special-fs: 16px                                        !default; // 字体大小
+
+/*****************
+ * 小标题及分类标题 *
+ *****************/
+
+$title-fc: #333                                            !default; // 字体颜色
+$title-fs: 14px                                            !default; // 字体大小
+
+/*******
+ * 正文 *
+ *******/
+$main-fc: #999                                            !default; // 字体颜色
+$main-fs: 14px                                            !default; // 字体大小
+
+/************
+ * 提示性文字 *
+ ************/
+$hint-fc: #ddd                                            !default; // 字体颜色
+$hint-fs: 12px                                            !default; // 字体大小
+
+/************
+ * 侧边栏背景色背景文字 *
+ ************/
+ $bg-fc: #fff                                         !default; // 字体颜色
+ $bg-fc-hover: #333                                   !default; // 字体颜色
+ $table-fc: #999                                      !default; // 字体颜色
+ $table-deep-fc: #018aea                              !default; // 字体颜色
+
+ /************
+ * 侧边栏背景色 *
+ ************/
+$as-bg-deep: #36506C                                               !default; // 深色
+$as-bg-deep-hover: #EDF2F6                                         !default; // 浅灰色
+
+/******************** 杂项 **********************/
+
+/***********
+ * 层级配置 *
+ ***********/
+
+$zIndex-top: 5                      !default;
+$zIndex-middle: 2                   !default;
+$zIndex-bottom: 1                   !default;
+$zIndex-under: -1                   !default;
+
+
+
+$f-family: 'Microsoft YaHei', '微软雅黑' !default; // 字体
+$border-color: $tool-color__level-5                        !default; // 边框颜色
+$b-radius: 4px                                            !default; // 圆角大小
+$box-shadow: -1px 0 1px 1px $tool-color__level-6,
+             0 1px 1px 1px $tool-color__level-6,
+             1px 0 1px 1px $tool-color__level-6            !default; // 浮层阴影
+$box-shadow2: 0 0 1px 0 $tool-color__level-1            !default; // 其它控件阴影
+
+
+
+
+
+// 主要按钮
+$btn-main-fc: #fff                                        !default;
+$btn-main-bc: $tool-color__level-2                        !default;
+$btn-main-bgc: $tool-color__level-2                        !default;
+$btn-main-fc--hover: #fff                                !default;
+$btn-main-bc--hover: $tool-color__level-11                !default;
+$btn-main-bgc--hover: $tool-color__level-11                !default;
+
+// 镂空主要按钮
+$btn-main-blank-fc: $tool-color__level-2                !default;
+$btn-main-blank-bc: $tool-color__level-2                !default;
+$btn-main-blank-bgc: transparent                        !default;
+$btn-main-blank-fc--hover: $tool-color__level-11        !default;
+$btn-main-blank-bc--hover: $tool-color__level-11        !default;
+$btn-main-blank-bgc--hover: transparent                    !default;
+
+// 镂空主要按钮2
+$btn-main-blank2-fc: $tool-color__level-6                !default;
+$btn-main-blank2-bc: $tool-color__level-6                !default;
+$btn-main-blank2-bgc: transparent                        !default;
+$btn-main-blank2-fc--hover: $tool-color__level-2        !default;
+$btn-main-blank2-bc--hover: $tool-color__level-2        !default;
+$btn-main-blank2-bgc--hover: transparent                !default;
+
+// 其它按钮
+$btn-other-fc: $tool-color__level-5                        !default;
+$btn-other-bc: $tool-color__level-5                        !default;
+$btn-other-bgc: #fff                                    !default;
+$btn-other-fc--hover: #fff                                !default;
+$btn-other-bc--hover: $tool-color__level-2                !default;
+$btn-other-bgc--hover: $tool-color__level-2                !default;
+
+
+
+
+/*********
+ * 提示条 *
+ *********/
+$tipsBar-error-bgc: #ff4949                     !default;
+$tipsBar-success-bgc: $main-color__light        !default;
+$tipsBar-warning-bgc: #ffc569                   !default;
+$tipsBar-info-bgc: #d6dee6                      !default;

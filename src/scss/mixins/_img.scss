@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+@mixin bg( $img ) {
+    background-image: url( $img  );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+// 示列
+@mixin img_404 {
+    width: 5.28rem;
+    height: 5.04rem;
+    @include bg( '../../404.jpg' );
+}

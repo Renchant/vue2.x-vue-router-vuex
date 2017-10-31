@@ -1,0 +1,43 @@
+
+@mixin vertical_algin() {
+    &::before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        width: 0;
+        vertical-align: middle;
+        margin-left: -.05em;
+    }
+}
+@mixin flex_center($justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin set_wh($w: 100%, $h: 100%) {
+    width: $w;
+    height: $h;
+}
+@mixin vertical_algin_super() {
+    &::before {
+        content: '';
+        height: 100%;
+        width: 0;
+        vertical-align: super;
+        margin-left: -.05em;
+    }
+}
+
+@mixin border_line ($h)
+    {
+        &:after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            right:0;
+            width: 2px;
+            height: $h;
+            margin-top: - $h / 2;
+            background-color: #ddd;
+        }
+}
