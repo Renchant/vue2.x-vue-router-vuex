@@ -41,4 +41,4 @@ new Vue({
     ...App
 }).$mount('#app');
 
-console.log(2)
+console.log(4)
