@@ -40,3 +40,5 @@ new Vue({
     router,
     ...App
 }).$mount('#app');
+
+console.log(1)
